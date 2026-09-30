@@ -171,7 +171,7 @@ export default function MarketDashboard() {
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-light)]">
                   <div className="text-[10px] uppercase tracking-wider text-[var(--text-muted)] font-semibold mb-1">Current Price</div>
-                  <div className="text-xl font-semibold font-mono text-white">{formatPrice(selectedStock.price)}</div>
+                  <div className="text-xl font-semibold font-mono text-white">{"$" + selectedStock.price.toLocaleString()}</div>
                 </div>
                 <div className="p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-light)]">
                   <div className="text-[10px] uppercase tracking-wider text-[var(--text-muted)] font-semibold mb-1">AI Target (30D)</div>

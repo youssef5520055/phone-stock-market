@@ -72,9 +72,9 @@ export default function AISection() {
                 {AI_PREDICTIONS.map((pred, i) => (
                   <div key={pred.id} className="p-4 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-light)] flex items-center justify-between group hover:border-[var(--border-focus)] transition-all">
                     <div className="flex items-center gap-3">
-                      <div className="text-2xl">{pred.emoji}</div>
+                      <div className="text-2xl">??</div>
                       <div>
-                        <div className="text-sm font-semibold text-white">{pred.phone}</div>
+                        <div className="text-sm font-semibold text-white">{pred.name}</div>
                         <div className="text-[10px] uppercase font-semibold text-[var(--text-muted)] flex items-center gap-1 mt-0.5">
                           {pred.confidence > 85 ? <Sparkles size={10} className="text-[var(--accent-blue)]" /> : <AlertTriangle size={10} className="text-yellow-500" />}
                           {pred.confidence}% Confidence
@@ -84,17 +84,17 @@ export default function AISection() {
                     
                     <div className="text-right">
                       <div className="text-xs font-semibold text-[var(--text-secondary)] mb-1">Target</div>
-                      <div className="text-lg font-mono font-semibold text-white tracking-tight">${pred.target}</div>
+                      <div className="text-lg font-mono font-semibold text-white tracking-tight">${pred.predictedPrice}</div>
                     </div>
 
                     <div className="hidden sm:block text-right">
                       <div className="text-xs font-semibold text-[var(--text-secondary)] mb-1">Signal</div>
                       <div className={`text-xs font-semibold px-2 py-1 rounded border ${
-                        pred.action === "BUY" ? "bg-[rgba(16,185,129,0.1)] text-[var(--color-up)] border-[rgba(16,185,129,0.2)]" :
-                        pred.action === "SELL" ? "bg-[rgba(239,68,68,0.1)] text-[var(--color-down)] border-[rgba(239,68,68,0.2)]" :
+                        pred.signal === "BUY" ? "bg-[rgba(16,185,129,0.1)] text-[var(--color-up)] border-[rgba(16,185,129,0.2)]" :
+                        pred.signal === "SELL" ? "bg-[rgba(239,68,68,0.1)] text-[var(--color-down)] border-[rgba(239,68,68,0.2)]" :
                         "bg-[var(--bg-card)] text-[var(--text-secondary)] border-[var(--border-light)]"
                       }`}>
-                        {pred.action}
+                        {pred.signal}
                       </div>
                     </div>
                   </div>
