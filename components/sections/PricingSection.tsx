@@ -10,7 +10,7 @@ export default function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section id="pricing" ref={ref} className="py-24 px-6 bg-[var(--bg-secondary)] border-y border-[var(--border-light)] relative overflow-hidden">
+    <section id="pricing" ref={ref} className="py-24 px-6 bg-[#3a3a3c] border-y border-[var(--border-light)] relative overflow-hidden">
       
       {/* Background glow for popular plan */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[var(--accent-blue)]/5 blur-[120px] pointer-events-none" />
@@ -19,7 +19,7 @@ export default function PricingSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
+          className="flex flex-col items-center justify-center text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
             Plans for every investor.
@@ -28,11 +28,11 @@ export default function PricingSection() {
             Whether you&apos;re a hobbyist tracking your next upgrade or an institution analyzing global supply chains.
           </p>
 
-          <div className="inline-flex items-center p-1 rounded-xl bg-[var(--bg-card)] border border-[var(--border-light)]">
+          <div className="inline-flex items-center gap-1 p-1.5 rounded-xl bg-[#2c2c2e] border border-[rgba(255,255,255,0.1)] mt-4">
             <button
               onClick={() => setIsAnnual(false)}
               className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
-                !isAnnual ? "bg-[var(--bg-secondary)] text-white shadow-sm border border-[var(--border-focus)]" : "text-[var(--text-secondary)] hover:text-white border border-transparent"
+                !isAnnual ? "bg-[#3a3a3c] text-white shadow-sm border border-blue-500" : "text-[var(--text-secondary)] hover:text-white border border-transparent"
               }`}
             >
               Monthly
@@ -40,7 +40,7 @@ export default function PricingSection() {
             <button
               onClick={() => setIsAnnual(true)}
               className={`px-6 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
-                isAnnual ? "bg-[var(--bg-secondary)] text-white shadow-sm border border-[var(--border-focus)]" : "text-[var(--text-secondary)] hover:text-white border border-transparent"
+                isAnnual ? "bg-[#3a3a3c] text-white shadow-sm border border-blue-500" : "text-[var(--text-secondary)] hover:text-white border border-transparent"
               }`}
             >
               Annually <span className="text-[10px] uppercase font-bold text-[var(--accent-blue-light)]">Save 25%</span>
@@ -48,7 +48,7 @@ export default function PricingSection() {
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mt-16">
           {SUBSCRIPTION_PLANS.map((plan, i) => {
             const price = isAnnual && plan.price > 0 ? Math.floor(plan.price * 0.75) : plan.price;
             const isPopular = plan.popular;
@@ -93,7 +93,7 @@ export default function PricingSection() {
                 </div>
 
                 <button className={`w-full py-3 rounded-xl text-sm font-semibold transition-all mb-8 ${
-                  isPopular ? "bg-[var(--accent-blue)] text-white hover:bg-[var(--accent-blue-light)]" : "bg-[var(--bg-card-hover)] text-white border border-[var(--border-light)] hover:border-[var(--border-focus)]"
+                  isPopular ? "bg-[var(--accent-blue)] text-white hover:bg-[var(--accent-blue-light)]" : "bg-[var(--bg-card-hover)] text-white border border-[var(--border-light)] hover:border-blue-500"
                 }`}>
                   {plan.cta}
                 </button>
@@ -117,3 +117,6 @@ export default function PricingSection() {
     </section>
   );
 }
+
+
+

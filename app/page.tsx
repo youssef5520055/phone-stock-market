@@ -15,13 +15,14 @@ import MarketTicker from "@/components/ui/MarketTicker";
 export default function HomePage() {
   return (
     <>
-      <Navbar />
-
-      <div className="fixed left-0 right-0 z-40 border-b border-[var(--border-light)]" style={{ top: 64, background: 'var(--bg-primary)' }}>
-        <MarketTicker />
+      <div className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-primary)] border-b border-[var(--border-light)] shadow-sm">
+        <Navbar />
+        <div className="border-t border-[var(--border-light)]">
+          <MarketTicker />
+        </div>
       </div>
 
-      <main style={{ paddingTop: 64 }}>
+      <main style={{ paddingTop: 104 }}>
         <HeroSection />
         <MarketDashboard />
         <ChartsSection />

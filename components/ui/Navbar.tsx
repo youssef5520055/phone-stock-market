@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Search, ChevronRight } from "lucide-react";
 
@@ -12,23 +12,12 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
-          scrolled
-            ? "glass border-[var(--border-light)]"
-            : "bg-transparent border-transparent"
-        }`}
+        className="w-full bg-transparent"
         style={{ height: 64 }}
       >
         <div className="max-w-[1400px] mx-auto h-full px-6 flex items-center justify-between">
@@ -58,7 +47,7 @@ export default function Navbar() {
               <Search size={14} />
               <span>Search</span>
               <span className="ml-2 text-[10px] font-mono px-1.5 py-0.5 rounded border border-[var(--border-light)] bg-[var(--bg-card)]">
-                ⌘K
+                Ctrl+K
               </span>
             </button>
             <div className="hidden md:block w-px h-4 bg-[var(--border-light)]" />
